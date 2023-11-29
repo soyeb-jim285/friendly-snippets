@@ -13,7 +13,7 @@ Use your plugin manager of choice, e.g.
 ### With Lazy.nvim
 
 ```lua
-{ "rafamadriz/friendly-snippets" }
+{ "soyeb-jim285/friendly-snippets" }
 ```
 
 > **Warning**: If you're using LuaSnip make sure to use
@@ -32,19 +32,19 @@ Use your plugin manager of choice, e.g.
 ### With Packer
 
 ```lua
-use "rafamadriz/friendly-snippets"
+use "soyeb-jim285/friendly-snippets"
 ```
 
 ### With vim-plug
 
 ```vim
-Plug "rafamadriz/friendly-snippets"
+Plug "soyeb-jim285/friendly-snippets"
 ```
 
 ### With coc.nvim
 
 ```vim
-:CocInstall https://github.com/rafamadriz/friendly-snippets@main
+:CocInstall https://github.com/soyeb-jim285/friendly-snippets@main
 ```
 
 ## Usage
