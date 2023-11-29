@@ -266,5 +266,127 @@
             "}"
         ],
         "description": "A standard main function for a C++ program"
+    },
+    "codetest": {
+        "prefix": "ct",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "typedef long long ll;",
+            "#include <ext/pb_ds/assoc_container.hpp>",
+            "#include <ext/pb_ds/tree_policy.hpp>",
+            "using namespace __gnu_pbds;",
+            "#define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>",
+            "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>",
+            "void solve()",
+            "{",
+            "\t$0",
+            "}",
+            "int main()",
+            "{",
+            "\tios::sync_with_stdio(false);",
+            "\tcin.tie(nullptr);",
+            "\tint t;",
+            "\tcin >> t;",
+            "\twhile (t--) solve();",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+    "code": {
+        "prefix": "cp",
+        "body": [
+            "#include <bits/stdc++.h>",
+            "using namespace std;",
+            "typedef long long ll;",
+            "#include <ext/pb_ds/assoc_container.hpp>",
+            "#include <ext/pb_ds/tree_policy.hpp>",
+            "using namespace __gnu_pbds;",
+            "#define ordered_set tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>",
+            "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>",
+            "void solve()",
+            "{",
+            "\t$0",
+            "}",
+            "int main()",
+            "{",
+            "\tios::sync_with_stdio(false);",
+            "\tcin.tie(nullptr);",
+            "\tsolve();",
+            "\treturn 0;",
+            "}"
+        ]
+    },
+    "binary_exponents": {
+        "prefix": "binpow",
+        "body": [
+            "ll binpow(ll a, ll b)",
+            "{",
+            "\tll res = 1;",
+            "\twhile (b > 0)",
+            "\t{",
+            "\t\tif (b & 1)",
+            "\t\t\tres *= a;",
+            "\t\ta *= a;",
+            "\t\tb >>= 1;",
+            "\t}",
+            "\treturn res;",
+            "}"
+        ]
+    },
+    "binary_exponents_mod": {
+        "prefix": "binpowmod",
+        "body": [
+            "ll binpowmod(ll a, ll b, ll m)",
+            "{",
+            "\tll res = 1;",
+            "\twhile (b > 0)",
+            "\t{",
+            "\t\tif (b & 1)",
+            "\t\t{",
+            "\t\t\tres *= a;",
+            "\t\t\tres = res % m;",
+            "\t\t}",
+            "\t\ta *= a;",
+            "\t\ta = a%m;",
+            "\t\tb >>= 1;",
+            "\t}",
+            "\treturn res;",
+            "}"
+        ]
+    }, 
+    "Extended gcd": {
+        "prefix": "extgcd",
+        "body": [
+            "ll gcd(ll a, ll b, ll &x, ll &y)",
+            "{",
+            "\tif (b == 0)",
+            "\t{",
+            "\t\tx = 1;",
+            "\t\ty = 0;",
+            "\t\treturn a;",
+            "\t}",
+            "\tll x1, y1;",
+            "\tll d = gcd(b, a % b, x1, y1);",
+            "\tx = y1;",
+            "\ty = x1 - y1 * (a / b);",
+            "\treturn d;",
+            "}"
+        ]
+    },
+    "num_len": {
+        "prefix": "numlen",
+        "body": [
+            "ll num_len(ll n)",
+            "{",
+            "\tll d = 0;",
+            "\twhile(n>0)",
+            "\t{",
+            "\t\td++;",
+            "\t\tn/=10;",
+            "\t}",
+            "\treturn d;",
+            "}"
+        ]
     }
 }
