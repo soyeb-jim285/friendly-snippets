@@ -267,17 +267,23 @@
         ],
         "description": "A standard main function for a C++ program"
     },
+    "ordered_set": {
+      "prefix": "orset",
+      "body":[
+        "#include <ext/pb_ds/assoc_container.hpp>",
+        "#include <ext/pb_ds/tree_policy.hpp>",
+        "using namespace __gnu_pbds;",
+        "#define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>",
+        "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_nod            e_update>"
+      ]
+    },
     "codetest": {
         "prefix": "ct",
         "body": [
             "#include <iostream>",
             "using namespace std;",
             "typedef long long ll;",
-            "#include <ext/pb_ds/assoc_container.hpp>",
-            "#include <ext/pb_ds/tree_policy.hpp>",
-            "using namespace __gnu_pbds;",
-            "#define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>",
-            "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>",
+            "typedef long double ld",
             "void solve()",
             "{",
             "\t$0",
@@ -299,11 +305,7 @@
             "#include <iostream>",
             "using namespace std;",
             "typedef long long ll;",
-            "#include <ext/pb_ds/assoc_container.hpp>",
-            "#include <ext/pb_ds/tree_policy.hpp>",
-            "using namespace __gnu_pbds;",
-            "#define ordered_set tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update>",
-            "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>",
+            "typedef long double ld",
             "void solve()",
             "{",
             "\t$0",
