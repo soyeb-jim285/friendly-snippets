@@ -270,7 +270,7 @@
     "codetest": {
         "prefix": "ct",
         "body": [
-            "#include <bits/stdc++.h>",
+            "#include <iostream>",
             "using namespace std;",
             "typedef long long ll;",
             "#include <ext/pb_ds/assoc_container.hpp>",
@@ -296,7 +296,7 @@
     "code": {
         "prefix": "cp",
         "body": [
-            "#include <bits/stdc++.h>",
+            "#include <iostream>",
             "using namespace std;",
             "typedef long long ll;",
             "#include <ext/pb_ds/assoc_container.hpp>",
