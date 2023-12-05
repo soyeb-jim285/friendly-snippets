@@ -359,7 +359,7 @@
       "#ifdef ONPC",
       "\t#define _GLIBCXX_DEBUG",
       "#endif",
-      "#include <iostream>",
+      "#include <bits/stdc++.h>",
       "using namespace std;",
       "",
       "#define sz(a) ((int)((a).size()))",
@@ -388,7 +388,10 @@
   "code": {
     "prefix": "cp",
     "body": [
-      "#include <iostream>",
+      "#ifdef ONPC",
+      "\t#define _GLIBCXX_DEBUG",
+      "#endif",
+      "#include <bits/stdc++.h>",
       "using namespace std;",
       "typedef long long ll;",
       "typedef long double ld;",
