@@ -1,394 +1,482 @@
 {
-    "Starter Template": {
+  "Starter Template": {
     "prefix": "st",
     "body": [
-        "#include <iostream>",
-        "",
-        "int main (int argc, char *argv[]) {",
-            "\t$1",
-            "",
-            "\treturn 0;",
-        "}"
-        ],
-        "description": "Standard starter template for a tiny C++ program"
-    },
-    "for": {
-        "prefix": "for",
-        "body": [
-            "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++) {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Code snippet for 'for' loop"
-    },
-    "forr": {
-        "prefix": "forr",
-        "body": [
-            "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; $2--) {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Code snippet for reverse 'for' loop"
-    },
-    "do": {
-        "prefix": "do",
-        "body": ["do {", "\t$0", "} while($1);"],
-        "description": "Code snippet for do...while loop"
-    },
-    "while": {
-        "prefix": "while",
-        "body": ["while ($1) {", "\t$2", "}"],
-        "description": ""
-    },
-    "foreach": {
-        "prefix": "foreach",
-        "body": [
-            "for(${1:auto} ${2:var} : ${3:collection_to_loop}) {",
-            "\t$0",
-            "}"
-        ],
-        "description": "Code snippet for range-based for loop (c++11) statement"
-    },
-    "if": {
-        "prefix": "if",
-        "body": ["if ($1) {", "\t$0", "}"],
-        "description": "Code snippet for if statement"
-    },
-    "else": {
-        "prefix": "else",
-        "body": ["else {", "\t$0", "}"],
-        "description": "Code snippet for else statement"
-    },
-    "else if": {
-        "prefix": "else if",
-        "body": ["else if ($1) {", "\t$0", "}"],
-        "description": "Code snippet for else-if statement"
-    },
-    "enum": {
-        "prefix": "enum",
-        "body": ["enum ${1:MyEnum} {", "\t$0", "};"],
-        "description": "Code snippet for enum"
-    },
-    "enum class": {
-        "prefix": "enum class",
-        "body": ["enum class ${1:MyClass} {$0};"],
-        "description": "Code snippet for enum class (c++11)"
-    },
-    "class": {
-        "prefix": "class",
-        "body": [
-            "class ${1:MyClass} {",
-            "public:",
-            "\t$1();",
-            "\t$1($1 &&) = default;",
-            "\t$1(const $1 &) = default;",
-            "\t$1 &operator=($1 &&) = default;",
-            "\t$1 &operator=(const $1 &) = default;",
-            "\t~$1();",
-            "",
-            "private:",
-            "\t$2",
-            "};",
-            "",
-            "$1::$1() {",
-            "}",
-            "",
-            "$1::~$1() {",
-            "}"
-        ],
-        "description": "Code snippet for class"
-    },
-    "eclass": {
-        "prefix": "eclass",
-        "body": [
-            "class ${1:MyClass} {",
-            "public:",
-            "\t$2",
-            "private:",
-            "\t$3",
-            "};",
-            ""
-        ],
-        "description": "Code snippet for empty class"
-    },
-    "qclass": {
-        "prefix": "qclass",
-        "body": [
-            "class ${1:MyClass} : public QObject {",
-            "\tQ_OBJECT;",
-            "public:",
-            "\nexplicit $1(QObject *parent = nullptr);",
-            "\t$2",
-            "signals:",
-            "",
-            "public slots:",
-            "};",
-            ""
-        ],
-        "description": "Code snippet for empty Qt class"
-    },
-    "classi": {
-        "prefix": "classi",
-        "body": [
-            "class ${1:MyClass} {",
-            "public:",
-            "\t$1() = default;",
-            "\t$1($1 &&) = default;",
-            "\t$1(const $1 &) = default;",
-            "\t$1 &operator=($1 &&) = default;",
-            "\t$1 &operator=(const $1 &) = default;",
-            "\t~$1() = default;",
-            "",
-            "private:",
-            "\t$2",
-            "};"
-        ],
-        "description": "Code snippet for class with inline constructor/destructor"
-    },
-    "interface": {
-        "prefix": "interface",
-        "body": ["__interface I${1:Interface} {", "\t$0", "};"],
-        "description": "Code snippet for interface (Visual C++)"
-    },
-    "namespace": {
-        "prefix": "namespace",
-        "body": ["namespace ${1:MyNamespace} {", "\t$0", "}"]
-    },
-    "#ifdef": {
-        "prefix": "#ifdef",
-        "body": ["#ifdef ${1:DEBUG}", "$0", "#endif // ${DEBUG}"],
-        "description": "Code snippet for #ifdef"
-    },
-    "#ifndef": {
-        "prefix": "#ifndef",
-        "body": ["#ifndef ${1:DEBUG}", "$0", "#endif // !$1"],
-        "description": "Code snippet for #ifndef"
-    },
-    "#if": {
-        "prefix": "#if",
-        "body": ["#if ${1:0}", "$0", "#endif // $1"],
-        "description": "Code snippet for #if"
-    },
-    "struct": {
-        "prefix": "struct",
-        "body": ["struct ${1:MyStruct} {", "\t$0", "};"],
-        "description": "Code snippet for struct"
-    },
-    "switch": {
-        "prefix": "switch",
-        "body": [
-            "switch (${1:switch_on}) {",
-            "\tdefault:",
-            "\t\t$0",
-            "\t\tbreak;",
-            "}"
-        ],
-        "description": "Code snippet for switch statement"
-    },
-    "try": {
-        "prefix": "try",
-        "body": [
-            "try {",
-            "\t",
-            "}",
-            "catch (const std::exception&) {",
-            "\t$1",
-            "}"
-        ],
-        "description": "Code snippet for try catch"
-    },
-    "union": {
-        "prefix": "union",
-        "body": ["union ${1:MyUnion} {", "\t$0", "};"],
-        "description": "Code snippet for union"
-    },
-    "cout": {
-        "prefix": "cout",
-        "body": ["std::cout << ${1:message};"],
-        "description": "Code snippet for printing to std::cout, provided the header is set"
-    },
-    "cin": {
-        "prefix": "cin",
-        "body": ["std::cin >> $1;"],
-        "description": "Code snippet for std::cin, provided the header is set"
-    },
-    "printf": {
-        "prefix": "printf",
-        "body": ["printf(\"$1\\n\"$0);"],
-        "description": "Generic printf() snippet"
-    },
-    "sprintf": {
-        "prefix": "sprintf",
-        "body": ["sprintf($1, \"$2\\n\"$0);"],
-        "description": "Generic sprintf() snippet"
-    },
-    "fprintf": {
-        "prefix": "fprintf",
-        "body": ["fprintf(${1:stderr}, \"$2\\n\"$0);"],
-        "description": "Generic fprintf() snippet"
-    },
-    "scanf": {
-        "prefix": "scanf",
-        "body": ["scanf(\"$1\"$0);"],
-        "description": "Generic scanf() snippet"
-    },
-    "sscanf": {
-        "prefix": "sscanf",
-        "body": ["sscanf($1, \"$2\"$0);"],
-        "description": "Generic sscanf() snippet"
-    },
-    "fscanf": {
-        "prefix": "fscanf",
-        "body": ["fscanf($1, \"$2\"$0);"],
-        "description": "Generic fscanf() snippet"
-    },
-    "#inc": {
-        "prefix": "#inc",
-        "body": ["#include \"$0\""],
-        "description": "Code snippet for #include \" \""
-    },
-    "#inc<": {
-        "prefix": "#inc<",
-        "body": ["#include <$0>"],
-        "description": "Code snippet for #include < >"
-    },
-    "#def": {
-        "prefix": "def",
-        "body": ["#define $0"],
-        "description": "Code snippet for #define \" \""
-    },
-    "Main function template": {
-        "prefix": "main",
-        "body": [
-            "int main (int argc, char *argv[]) {",
-            "\t$1",
-            "\treturn 0;",
-            "}"
-        ],
-        "description": "A standard main function for a C++ program"
-    },
-    "ordered_set": {
-      "prefix": "orset",
-      "body":[
-        "#include <ext/pb_ds/assoc_container.hpp>",
-        "#include <ext/pb_ds/tree_policy.hpp>",
-        "using namespace __gnu_pbds;",
-        "#define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>",
-        "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>"
-      ]
-    },
-    "codetest": {
-        "prefix": "ct",
-        "body": [
-            "#include <iostream>",
-            "using namespace std;",
-            "typedef long long ll;",
-            "typedef long double ld;",
-            "void solve()",
-            "{",
-            "\t$0",
-            "}",
-            "int main()",
-            "{",
-            "\tios::sync_with_stdio(false);",
-            "\tcin.tie(nullptr);",
-            "\tint t;",
-            "\tcin >> t;",
-            "\twhile (t--) solve();",
-            "\treturn 0;",
-            "}"
-        ]
-    },
-    "code": {
-        "prefix": "cp",
-        "body": [
-            "#include <iostream>",
-            "using namespace std;",
-            "typedef long long ll;",
-            "typedef long double ld;",
-            "void solve()",
-            "{",
-            "\t$0",
-            "}",
-            "int main()",
-            "{",
-            "\tios::sync_with_stdio(false);",
-            "\tcin.tie(nullptr);",
-            "\tsolve();",
-            "\treturn 0;",
-            "}"
-        ]
-    },
-    "binary_exponents": {
-        "prefix": "binpow",
-        "body": [
-            "ll binpow(ll a, ll b)",
-            "{",
-            "\tll res = 1;",
-            "\twhile (b > 0)",
-            "\t{",
-            "\t\tif (b & 1)",
-            "\t\t\tres *= a;",
-            "\t\ta *= a;",
-            "\t\tb >>= 1;",
-            "\t}",
-            "\treturn res;",
-            "}"
-        ]
-    },
-    "binary_exponents_mod": {
-        "prefix": "binpowmod",
-        "body": [
-            "ll binpowmod(ll a, ll b, ll m)",
-            "{",
-            "\tll res = 1;",
-            "\twhile (b > 0)",
-            "\t{",
-            "\t\tif (b & 1)",
-            "\t\t{",
-            "\t\t\tres *= a;",
-            "\t\t\tres = res % m;",
-            "\t\t}",
-            "\t\ta *= a;",
-            "\t\ta = a%m;",
-            "\t\tb >>= 1;",
-            "\t}",
-            "\treturn res;",
-            "}"
-        ]
-    }, 
-    "Extended gcd": {
-        "prefix": "extgcd",
-        "body": [
-            "ll gcd(ll a, ll b, ll &x, ll &y)",
-            "{",
-            "\tif (b == 0)",
-            "\t{",
-            "\t\tx = 1;",
-            "\t\ty = 0;",
-            "\t\treturn a;",
-            "\t}",
-            "\tll x1, y1;",
-            "\tll d = gcd(b, a % b, x1, y1);",
-            "\tx = y1;",
-            "\ty = x1 - y1 * (a / b);",
-            "\treturn d;",
-            "}"
-        ]
-    },
-    "num_len": {
-        "prefix": "numlen",
-        "body": [
-            "ll num_len(ll n)",
-            "{",
-            "\tll d = 0;",
-            "\twhile(n>0)",
-            "\t{",
-            "\t\td++;",
-            "\t\tn/=10;",
-            "\t}",
-            "\treturn d;",
-            "}"
-        ]
-    }
+      "#include <iostream>",
+      "",
+      "int main (int argc, char *argv[]) {",
+      "\t$1",
+      "",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Standard starter template for a tiny C++ program"
+  },
+  "for": {
+    "prefix": "for",
+    "body": [
+      "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for 'for' loop"
+  },
+  "forr": {
+    "prefix": "forr",
+    "body": [
+      "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; $2--) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for reverse 'for' loop"
+  },
+  "do": {
+    "prefix": "do",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while($1);"
+    ],
+    "description": "Code snippet for do...while loop"
+  },
+  "while": {
+    "prefix": "while",
+    "body": [
+      "while ($1) {",
+      "\t$2",
+      "}"
+    ],
+    "description": ""
+  },
+  "foreach": {
+    "prefix": "foreach",
+    "body": [
+      "for(${1:auto} ${2:var} : ${3:collection_to_loop}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for range-based for loop (c++11) statement"
+  },
+  "if": {
+    "prefix": "if",
+    "body": [
+      "if ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for if statement"
+  },
+  "else": {
+    "prefix": "else",
+    "body": [
+      "else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for else statement"
+  },
+  "else if": {
+    "prefix": "else if",
+    "body": [
+      "else if ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Code snippet for else-if statement"
+  },
+  "enum": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:MyEnum} {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Code snippet for enum"
+  },
+  "enum class": {
+    "prefix": "enum class",
+    "body": [
+      "enum class ${1:MyClass} {$0};"
+    ],
+    "description": "Code snippet for enum class (c++11)"
+  },
+  "class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:MyClass} {",
+      "public:",
+      "\t$1();",
+      "\t$1($1 &&) = default;",
+      "\t$1(const $1 &) = default;",
+      "\t$1 &operator=($1 &&) = default;",
+      "\t$1 &operator=(const $1 &) = default;",
+      "\t~$1();",
+      "",
+      "private:",
+      "\t$2",
+      "};",
+      "",
+      "$1::$1() {",
+      "}",
+      "",
+      "$1::~$1() {",
+      "}"
+    ],
+    "description": "Code snippet for class"
+  },
+  "eclass": {
+    "prefix": "eclass",
+    "body": [
+      "class ${1:MyClass} {",
+      "public:",
+      "\t$2",
+      "private:",
+      "\t$3",
+      "};",
+      ""
+    ],
+    "description": "Code snippet for empty class"
+  },
+  "qclass": {
+    "prefix": "qclass",
+    "body": [
+      "class ${1:MyClass} : public QObject {",
+      "\tQ_OBJECT;",
+      "public:",
+      "\nexplicit $1(QObject *parent = nullptr);",
+      "\t$2",
+      "signals:",
+      "",
+      "public slots:",
+      "};",
+      ""
+    ],
+    "description": "Code snippet for empty Qt class"
+  },
+  "classi": {
+    "prefix": "classi",
+    "body": [
+      "class ${1:MyClass} {",
+      "public:",
+      "\t$1() = default;",
+      "\t$1($1 &&) = default;",
+      "\t$1(const $1 &) = default;",
+      "\t$1 &operator=($1 &&) = default;",
+      "\t$1 &operator=(const $1 &) = default;",
+      "\t~$1() = default;",
+      "",
+      "private:",
+      "\t$2",
+      "};"
+    ],
+    "description": "Code snippet for class with inline constructor/destructor"
+  },
+  "interface": {
+    "prefix": "interface",
+    "body": [
+      "__interface I${1:Interface} {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Code snippet for interface (Visual C++)"
+  },
+  "namespace": {
+    "prefix": "namespace",
+    "body": [
+      "namespace ${1:MyNamespace} {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "#ifdef": {
+    "prefix": "#ifdef",
+    "body": [
+      "#ifdef ${1:DEBUG}",
+      "$0",
+      "#endif // ${DEBUG}"
+    ],
+    "description": "Code snippet for #ifdef"
+  },
+  "#ifndef": {
+    "prefix": "#ifndef",
+    "body": [
+      "#ifndef ${1:DEBUG}",
+      "$0",
+      "#endif // !$1"
+    ],
+    "description": "Code snippet for #ifndef"
+  },
+  "#if": {
+    "prefix": "#if",
+    "body": [
+      "#if ${1:0}",
+      "$0",
+      "#endif // $1"
+    ],
+    "description": "Code snippet for #if"
+  },
+  "struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:MyStruct} {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Code snippet for struct"
+  },
+  "switch": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:switch_on}) {",
+      "\tdefault:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Code snippet for switch statement"
+  },
+  "try": {
+    "prefix": "try",
+    "body": [
+      "try {",
+      "\t",
+      "}",
+      "catch (const std::exception&) {",
+      "\t$1",
+      "}"
+    ],
+    "description": "Code snippet for try catch"
+  },
+  "union": {
+    "prefix": "union",
+    "body": [
+      "union ${1:MyUnion} {",
+      "\t$0",
+      "};"
+    ],
+    "description": "Code snippet for union"
+  },
+  "cout": {
+    "prefix": "cout",
+    "body": [
+      "std::cout << ${1:message};"
+    ],
+    "description": "Code snippet for printing to std::cout, provided the header is set"
+  },
+  "cin": {
+    "prefix": "cin",
+    "body": [
+      "std::cin >> $1;"
+    ],
+    "description": "Code snippet for std::cin, provided the header is set"
+  },
+  "printf": {
+    "prefix": "printf",
+    "body": [
+      "printf(\"$1\\n\"$0);"
+    ],
+    "description": "Generic printf() snippet"
+  },
+  "sprintf": {
+    "prefix": "sprintf",
+    "body": [
+      "sprintf($1, \"$2\\n\"$0);"
+    ],
+    "description": "Generic sprintf() snippet"
+  },
+  "fprintf": {
+    "prefix": "fprintf",
+    "body": [
+      "fprintf(${1:stderr}, \"$2\\n\"$0);"
+    ],
+    "description": "Generic fprintf() snippet"
+  },
+  "scanf": {
+    "prefix": "scanf",
+    "body": [
+      "scanf(\"$1\"$0);"
+    ],
+    "description": "Generic scanf() snippet"
+  },
+  "sscanf": {
+    "prefix": "sscanf",
+    "body": [
+      "sscanf($1, \"$2\"$0);"
+    ],
+    "description": "Generic sscanf() snippet"
+  },
+  "fscanf": {
+    "prefix": "fscanf",
+    "body": [
+      "fscanf($1, \"$2\"$0);"
+    ],
+    "description": "Generic fscanf() snippet"
+  },
+  "#inc": {
+    "prefix": "#inc",
+    "body": [
+      "#include \"$0\""
+    ],
+    "description": "Code snippet for #include \" \""
+  },
+  "#inc<": {
+    "prefix": "#inc<",
+    "body": [
+      "#include <$0>"
+    ],
+    "description": "Code snippet for #include < >"
+  },
+  "#def": {
+    "prefix": "def",
+    "body": [
+      "#define $0"
+    ],
+    "description": "Code snippet for #define \" \""
+  },
+  "Main function template": {
+    "prefix": "main",
+    "body": [
+      "int main (int argc, char *argv[]) {",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "A standard main function for a C++ program"
+  },
+  "ordered_set": {
+    "prefix": "orset",
+    "body": [
+      "#include <ext/pb_ds/assoc_container.hpp>",
+      "#include <ext/pb_ds/tree_policy.hpp>",
+      "using namespace __gnu_pbds;",
+      "#define ordered_set tree<ll, null_type,less<ll>, rb_tree_tag,tree_order_statistics_node_update>",
+      "#define ordered_pair_set tree<pair<ll,ll>, null_type, less<pair<ll,ll>>, rb_tree_tag, tree_order_statistics_node_update>"
+    ]
+  },
+  "codetest": {
+    "prefix": "ct",
+    "body": [
+      "#ifdef ONPC",
+      "\t#define _GLIBCXX_DEBUG",
+      "#endif",
+      "#include <iostream>",
+      "using namespace std;",
+      "",
+      "#define sz(a) ((int)((a).size()))",
+      "",
+      "typedef long long ll;",
+      "typedef long double ld;",
+      "// mt19937 rnd(239);",
+      "mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());",
+      "void solve()",
+      "{",
+      "\t$0",
+      "}",
+      "int main()",
+      "{",
+      "\tios::sync_with_stdio(false);",
+      "\tcin.tie(nullptr);",
+      "\tint t;",
+      "\tcin >> t;",
+      "\twhile (t--) solve();",
+      "#ifdef ONPC",
+      "\tcerr << endl << \"finished in \" << clock() * 1.0 / CLOCKS_PER_SEC << \" sec\" << endl;",
+      "#endif",
+      "}"
+    ]
+  },
+  "code": {
+    "prefix": "cp",
+    "body": [
+      "#include <iostream>",
+      "using namespace std;",
+      "typedef long long ll;",
+      "typedef long double ld;",
+      "void solve()",
+      "{",
+      "\t$0",
+      "}",
+      "int main()",
+      "{",
+      "\tios::sync_with_stdio(false);",
+      "\tcin.tie(nullptr);",
+      "\tsolve();",
+      "#ifdef ONPC",
+      "\tcerr << endl << \"finished in \" << clock() * 1.0 / CLOCKS_PER_SEC << \" sec\" << endl;",
+      "#endef",
+      "}"
+    ]
+  },
+  "binary_exponents": {
+    "prefix": "binpow",
+    "body": [
+      "ll binpow(ll a, ll b)",
+      "{",
+      "\tll res = 1;",
+      "\twhile (b > 0)",
+      "\t{",
+      "\t\tif (b & 1)",
+      "\t\t\tres *= a;",
+      "\t\ta *= a;",
+      "\t\tb >>= 1;",
+      "\t}",
+      "\treturn res;",
+      "}"
+    ]
+  },
+  "binary_exponents_mod": {
+    "prefix": "binpowmod",
+    "body": [
+      "ll binpowmod(ll a, ll b, ll m)",
+      "{",
+      "\tll res = 1;",
+      "\twhile (b > 0)",
+      "\t{",
+      "\t\tif (b & 1)",
+      "\t\t{",
+      "\t\t\tres *= a;",
+      "\t\t\tres = res % m;",
+      "\t\t}",
+      "\t\ta *= a;",
+      "\t\ta = a%m;",
+      "\t\tb >>= 1;",
+      "\t}",
+      "\treturn res;",
+      "}"
+    ]
+  },
+  "Extended gcd": {
+    "prefix": "extgcd",
+    "body": [
+      "ll gcd(ll a, ll b, ll &x, ll &y)",
+      "{",
+      "\tif (b == 0)",
+      "\t{",
+      "\t\tx = 1;",
+      "\t\ty = 0;",
+      "\t\treturn a;",
+      "\t}",
+      "\tll x1, y1;",
+      "\tll d = gcd(b, a % b, x1, y1);",
+      "\tx = y1;",
+      "\ty = x1 - y1 * (a / b);",
+      "\treturn d;",
+      "}"
+    ]
+  },
+  "num_len": {
+    "prefix": "numlen",
+    "body": [
+      "ll num_len(ll n)",
+      "{",
+      "\tll d = 0;",
+      "\twhile(n>0)",
+      "\t{",
+      "\t\td++;",
+      "\t\tn/=10;",
+      "\t}",
+      "\treturn d;",
+      "}"
+    ]
+  }
 }

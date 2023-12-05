@@ -25,7 +25,7 @@ Use your plugin manager of choice, e.g.
 > ```lua
 > {
 >   "L3MON4D3/LuaSnip",
->   dependencies = { "rafamadriz/friendly-snippets" },
+>   dependencies = { "soyeb-jim285/friendly-snippets" },
 > }
 > ```
 
