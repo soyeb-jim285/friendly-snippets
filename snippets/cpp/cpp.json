@@ -395,6 +395,8 @@
       "using namespace std;",
       "typedef long long ll;",
       "typedef long double ld;",
+      "// mt19937 rnd(239);",
+      "mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());",
       "void solve()",
       "{",
       "\t$0",
@@ -406,7 +408,7 @@
       "\tsolve();",
       "#ifdef ONPC",
       "\tcerr << endl << \"finished in \" << clock() * 1.0 / CLOCKS_PER_SEC << \" sec\" << endl;",
-      "#endef",
+      "#endif",
       "}"
     ]
   },
