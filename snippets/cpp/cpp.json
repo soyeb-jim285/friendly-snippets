@@ -356,9 +356,6 @@
   "codetest": {
     "prefix": "ct",
     "body": [
-      "#ifdef ONPC",
-      "\t#define _GLIBCXX_DEBUG",
-      "#endif",
       "#include <bits/stdc++.h>",
       "using namespace std;",
       "",
@@ -388,9 +385,6 @@
   "code": {
     "prefix": "cp",
     "body": [
-      "#ifdef ONPC",
-      "\t#define _GLIBCXX_DEBUG",
-      "#endif",
       "#include <bits/stdc++.h>",
       "using namespace std;",
       "typedef long long ll;",
